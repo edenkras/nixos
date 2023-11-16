@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ username, config, pkgs, ... }:
 
 {
   imports =
@@ -34,13 +34,51 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    jq
+    yq
+    steam
+    discord
+    slack
+    kubectl
+    jetbrains-toolbox
+  ];
+
+  programs = {
+    bash = {
+      blesh.enable = true;
+      shellAliases = {
+        grep = "grep --color=auto";
+        ls = "ls --color=auto";
+        ll = "ls -la";
+      };
+    };
+    neovim = {
+      enable = true;
+      vimAlias = true;
+      viAlias = true;
+      defaultEditor = true;
+    };
+    git = {
+      enable = true;
+      lfs.enable = true;
+      config = {
+        userName = username;
+        userEmail = "edenkras@gmail.com";
+      };
+    };
+    fzf = {
+      keybindings = true;
+    };
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  users.users.eden = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
