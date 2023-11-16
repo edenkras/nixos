@@ -1,7 +1,7 @@
 # https://mipmip.github.io/home-manager-option-search/
 {
   inputs,
-  username,
+  identity,
   lib,
   config,
   pkgs,
@@ -34,8 +34,8 @@
   };
 
   home = {
-    username = username;
-    homeDirectory = "/home/${username}";
+    username = identity.username;
+    homeDirectory = "/home/${identity.username}";
     stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     file = {
       ".xinitrc".source = ./xinitrc;

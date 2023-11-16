@@ -10,24 +10,24 @@
   outputs = { self, nixpkgs, home-manager }@inputs:
   let
     system = "x86_64-linux";
-    username = "eden";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+    identity = {
+      username = "eden";
+      host = "laptop";
+      email = "edenkras@gmail.com";
     };
   in
   {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      laptop = pkgs.lib.nixosSystem {
-        specialArgs = { inherit system username; };
+      "${identity.username}@${identity.host}" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system identity; };
         modules = [
           ./nixos-config/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              extraSpecialArgs = { inherit inputs username; };
+              extraSpecialArgs = { inherit inputs identity; };
               users.${username} = import ./home-manager/home.nix;
             };
           }

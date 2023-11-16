@@ -1,10 +1,7 @@
-{ username, config, pkgs, ... }:
+{ identity, config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -12,8 +9,10 @@
     grub.device = "/dev/nvme0n1";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   networking = {
-    hostName = "eden-laptop";
+    hostName = "${identity.username}-${identity.host}";
     networkmanager.enable = true;
   };
 
@@ -65,8 +64,8 @@
       enable = true;
       lfs.enable = true;
       config = {
-        userName = username;
-        userEmail = "edenkras@gmail.com";
+        userName = identity.username;
+        userEmail = identity.email;
       };
     };
     fzf = {
@@ -84,7 +83,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  users.users.${username} = {
+  users.users.${identity.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
