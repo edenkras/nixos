@@ -54,7 +54,7 @@
 
   xdg.configFile = {
     awesome = {
-      source = ./awesome/;
+      source = ./awesome;
       recursive = true;
     };
   };
