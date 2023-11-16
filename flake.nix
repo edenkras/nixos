@@ -11,13 +11,16 @@
   let
     system = "x86_64-linux";
     username = "eden";
-    nixpkgs.config.allowUnfree = true;
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in
   {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      laptop = pkgs.lib.nixosSystem {
         specialArgs = { inherit system username; };
         modules = [
           ./nixos-config/configuration.nix
