@@ -37,6 +37,9 @@
     username = username;
     homeDirectory = "/home/${username}";
     stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    file = {
+      ".xinitrc".source = ./xinitrc;
+    };
   };
 
   programs = {
@@ -47,6 +50,10 @@
     };
     rofi.enable = true;
     k9s.enable = false;
+  };
+
+  xdg.configFile = {
+    awesome.source = ./awesome;
   };
 
   # Nicely reload system units when changing configs

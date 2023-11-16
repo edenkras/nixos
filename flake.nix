@@ -11,7 +11,10 @@
   let
     system = "x86_64-linux";
     username = "eden";
-    nixpkgs.config.allowUnfree = true;
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in
   {
     # NixOS configuration entrypoint

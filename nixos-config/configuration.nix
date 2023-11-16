@@ -42,6 +42,8 @@
     slack
     kubectl
     jetbrains-toolbox
+    google-cloud-sdk
+    docker
   ];
 
   programs = {
@@ -70,9 +72,13 @@
     fzf = {
       keybindings = true;
     };
+    nm-applet.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+  };
 
   # Enable sound.
   sound.enable = true;
