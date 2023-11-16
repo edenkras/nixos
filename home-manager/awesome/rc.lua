@@ -65,19 +65,19 @@ local gpu_temp_widget = wibox.widget {
     layout = wibox.layout.fixed.horizontal,
 }
 
---gears.timer {
---    timeout = 10,
---    call_now = true,
---    autostart = true,
---    callback = function()
---        awful.spawn.easy_async(
---                { "bash", "-c", "cat /sys/class/drm/card*/device/hwmon/hwmon2/temp1_input" },
---                function(out)
---                    gpu_temp_widget:get_children_by_id("txt")[1]:set_text((out // 1000) .. "C")
---                end
---        )
---    end
---}
+gears.timer {
+    timeout = 10,
+    call_now = true,
+    autostart = true,
+    callback = function()
+        awful.spawn.easy_async(
+                { "bash", "-c", "cat /sys/class/drm/card*/device/hwmon/hwmon2/temp1_input" },
+                function(out)
+                    gpu_temp_widget:get_children_by_id("txt")[1]:set_text((out // 1000) .. "C")
+                end
+        )
+    end
+}
 
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
