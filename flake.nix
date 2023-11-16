@@ -10,6 +10,7 @@
   outputs = { self, nixpkgs, home-manager }@inputs:
   let
     system = "x86_64-linux";
+    username = "eden";
   in
   {
     # NixOS configuration entrypoint
@@ -22,8 +23,8 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              users.eden = import ./home-manager/home.nix;
+              extraSpecialArgs = { inherit inputs username; };
+              users.${username} = import ./home-manager/home.nix;
             };
           }
         ];

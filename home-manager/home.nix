@@ -1,6 +1,7 @@
 # https://mipmip.github.io/home-manager-option-search/
 {
   inputs,
+  username,
   lib,
   config,
   pkgs,
@@ -28,31 +29,44 @@
     ];
     config = {
       allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
+      allowUnfreePredicate = _: true; # https://github.com/nix-community/home-manager/issues/2942
     };
   };
 
   home = {
-    username = "eden";
-    homeDirectory = "/home/eden";
+    username = username;
+    homeDirectory = "/home/${username}";
     stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-#    packages = with pkgs; [ steam ];
+    packages = with pkgs; [
+      steam
+      discord
+    ];
   };
 
   programs = {
     home-manager.enable = true;
+    bash = {
+      enable = true;
+      shellAliases = {
+        grep = "grep --color=auto";
+        ls = "ls --color=auto";
+        ll = "ls -la";
+      };
+    };
     git = {
       enable = true;
-      userName  = "eden";
+      userName = username;
       userEmail = "edenkras@gmail.com";
     };
     neovim.enable = true;
     wezterm.enable = true;
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+    };
     jq.enable = true;
     rofi.enable = true;
-#    k9s.enable = true;
+    k9s.enable = false;
   };
 
   # Nicely reload system units when changing configs
