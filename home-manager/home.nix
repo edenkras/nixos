@@ -53,7 +53,10 @@
   };
 
   xdg.configFile = {
-    awesome.source = ./awesome;
+    awesome = {
+      source = ./awesome;
+      recursive = true;
+    };
   };
 
   # Nicely reload system units when changing configs
