@@ -24,7 +24,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs outputs; };
+              extraSpecialArgs = { inherit inputs; };
               users.eden = import ./home-manager/home.nix;
             };
           }
