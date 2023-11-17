@@ -29,7 +29,7 @@
       xkbOptions = "eurosign:e,caps:escape";
       windowManager.awesome = {
         enable = true;
-        package = import ./awesome-git pkgs;
+        package = import ./awesome-git.nix pkgs;
       };
     };
     openssh = {
