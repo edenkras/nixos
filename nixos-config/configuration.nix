@@ -14,6 +14,7 @@
     overlays = [
       (final: prev: {
          awesome-git = prev.awesome.overrideAttrs (old: {
+           pname = "awesome-git";
            version = "git-7ed4dd";
            src = prev.fetchFromGitHub {
              owner = "awesomeWM";
