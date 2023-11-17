@@ -37,7 +37,10 @@
       enable = true;
       enableBashIntegration = true;
     };
-    rofi.enable = true;
+    rofi = {
+      enable = true;
+      theme = "Arc-Dark";
+    };
     k9s.enable = false;
   };
 
