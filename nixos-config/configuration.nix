@@ -69,8 +69,10 @@
       enable = true;
       lfs.enable = true;
       config = {
-        userName = identity.username;
-        userEmail = identity.email;
+        user = {
+          name = identity.username;
+          email = identity.email;
+        };
       };
     };
     fzf = {
