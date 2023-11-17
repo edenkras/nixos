@@ -9,15 +9,15 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
-local beautiful = require("beautiful")
-local theme = require("theme")
 -- Notification library
 local naughty = require("naughty")
 -- Declarative object management
 local ruled = require("ruled")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Theme handling library
+local beautiful = require("beautiful")
+local theme = require("theme")
 
 local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
 
