@@ -20,7 +20,7 @@
              owner = "awesomewm";
              repo = "awesome";
              rev = "5daae2bb5d90117eb341ad72eb123c4e6804b780";
-             sha256 = "";
+             sha256 = "sha256-o69if8HQw2u0fp5J7jkS4WQeAXVuiFwpDLzGFscP4mM=";
            };
            patches = [];
          });
