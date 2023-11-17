@@ -25,10 +25,7 @@
       displayManager.startx.enable = true;
       layout = "us,il";
       xkbOptions = "eurosign:e,caps:escape";
-      windowManager.awesome = {
-        enable = true;
-        luaModules = [ pkgs.luaPackages.lgi ];
-      };
+      windowManager.awesome.enable = true;
     };
     openssh = {
       enable = true;
@@ -46,6 +43,7 @@
     jetbrains-toolbox
     google-cloud-sdk
     docker
+    lua
   ];
 
   programs = {
