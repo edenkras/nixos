@@ -12,7 +12,7 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      (final: perv: {
+      (final: prev: {
          awesome-git = prev.awesome.overrideAttrs (old: {
            src = prev.fetchFromGitHub {
              owner = "awesomeWM";
