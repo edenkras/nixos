@@ -31,6 +31,7 @@
         enable = true;
         package = import ./awesome-git.nix pkgs;
       };
+      displayManager.defaultSession = "none+awesome";
     };
     openssh = {
       enable = true;
@@ -68,8 +69,8 @@
       enable = true;
       lfs.enable = true;
       config = {
-        userName = "${identity.username}";
-        userEmail = "edenkras@gmail.com";
+        userName = identity.username;
+        userEmail = identity.email;
       };
     };
     fzf = {

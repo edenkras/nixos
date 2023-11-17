@@ -316,13 +316,15 @@ ruled.client.connect_signal("request::rules", function()
         }
     }
 
-    ruled.client.append_rule {
-        rule_any = { class = { "discord", "Slack" } },
-        properties = {
-            screen = sideScreen,
-            maximized = true,
+    if not sideScreen == nil then
+        ruled.client.append_rule {
+            rule_any = { class = { "discord", "Slack" } },
+            properties = {
+                screen = sideScreen,
+                maximized = true,
+            }
         }
-    }
+    end
 end)
 -- }}}
 
