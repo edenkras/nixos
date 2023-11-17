@@ -30,6 +30,7 @@
       windowManager.awesome = {
         enable = true;
         package = import ./awesome-git pkgs;
+      };
     };
     openssh = {
       enable = true;
@@ -92,4 +93,4 @@
   };
 
   system.stateVersion = "23.05";
-};
+}
