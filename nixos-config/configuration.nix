@@ -1,6 +1,19 @@
 { identity, config, pkgs, ... }:
-
-{
+let
+  awesome = pkgs.awesome.overrideAttrs (old: rec {
+    version = "5daae2bb5d90117eb341ad72eb123c4e6804b780";
+    src = prev.fetchFromGitHub {
+      owner = "awesomewm";
+      repo = "awesome";
+      rev = version;
+      sha256 = "sha256-o69if8HQw2u0fp5J7jkS4WQeAXVuiFwpDLzGFscP4mM=";
+    };
+    patches = [];
+    postPatch = ''
+      patchShebangs tests/examples/_postprocess.lua
+    '';
+  });
+in {
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader = {
@@ -11,24 +24,6 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-         awesome-git = prev.awesome.overrideAttrs (old: {
-           pname = "awesome-git";
-           version = "5daae2bb5d90117eb341ad72eb123c4e6804b780";
-           src = prev.fetchFromGitHub {
-             owner = "awesomewm";
-             repo = "awesome";
-             rev = "5daae2bb5d90117eb341ad72eb123c4e6804b780";
-             sha256 = "sha256-o69if8HQw2u0fp5J7jkS4WQeAXVuiFwpDLzGFscP4mM=";
-           };
-           patches = [];
-           postPatch = ''
-             patchShebangs tests/examples/_postprocess.lua
-           '';
-         });
-       })
-    ];
   };
 
   networking = {
@@ -47,7 +42,7 @@
       xkbOptions = "eurosign:e,caps:escape";
       windowManager.awesome = {
         enable = true;
-        package = pkgs.awesome-git;
+        package = awesome;
       };
     };
     openssh = {
