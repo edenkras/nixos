@@ -52,12 +52,12 @@
     k9s.enable = false;
   };
 
-  xdg.configFile = {
-    awesome = {
-      source = ./awesome;
-      recursive = true;
-    };
-  };
+#  xdg.configFile = {
+#    awesome = {
+#      source = ./awesome;
+#      recursive = true;
+#    };
+#  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

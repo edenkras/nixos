@@ -36,8 +36,7 @@
   environment.systemPackages = with pkgs; [
     jq
     yq
-    steam
-    discord
+    google-chrome
     slack
     kubectl
     jetbrains-toolbox
