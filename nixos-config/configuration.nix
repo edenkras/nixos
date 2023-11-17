@@ -18,7 +18,7 @@
            version = "git-7ed4dd";
            src = prev.fetchFromGitHub {
              owner = "awesomeWM";
-             repo = "awesome";
+             repo = "awesomedbdbdb";
              rev = "7ed4dd620bc73ba87a1f88e6f126aed348f94458";
              sha256 = "";
            };
