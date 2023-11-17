@@ -13,11 +13,10 @@
     config.allowUnfree = true;
     overlays = [
       (final: prev: {
-         awesome-git = prev.awesome.overrideAttrs (old: {
-           pname = "awesome-git";
+         awesome-git = prev.awesome.overrideAttrs (old: rec {
            version = "git-7ed4dd";
            src = prev.fetchFromGitHub {
-             owner = "awesomeWM";
+             owner = "awesomewm";
              repo = "awesomedbdbdb";
              rev = "7ed4dd620bc73ba87a1f88e6f126aed348f94458";
              sha256 = "";
