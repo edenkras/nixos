@@ -23,6 +23,9 @@
              sha256 = "sha256-o69if8HQw2u0fp5J7jkS4WQeAXVuiFwpDLzGFscP4mM=";
            };
            patches = [];
+           postPatch = ''
+             patchShebangs tests/examples/_postprocess.lua
+           '';
          });
        })
     ];
