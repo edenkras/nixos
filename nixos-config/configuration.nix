@@ -25,12 +25,7 @@
       displayManager.startx.enable = true;
       layout = "us,il";
       xkbOptions = "eurosign:e,caps:escape";
-      windowManager.awesome = {
-        enable = true;
-        luaModules = with pkgs; [
-          luajitPackages.lgi
-        ];
-      };
+      windowManager.awesome.enable = true;
     };
     openssh = {
       enable = true;

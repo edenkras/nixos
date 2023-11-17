@@ -38,7 +38,9 @@
     homeDirectory = "/home/${identity.username}";
     stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     file = {
-      ".xinitrc".source = ./xinitrc;
+      ".xinitrc".text = ''
+        exec ${pkgs.awesome}/bin/.awesome-wrapped --search ${pkgs.luaPackages.lgi}/lib/lua/${pkgs.luaPackages.lua.luaversion} --search ${pkgs.luaPackages.lgi}/share/lua/${pkgs.luaPackages.lua.luaversion}
+      '';
     };
   };
 
