@@ -68,8 +68,8 @@
       enable = true;
       lfs.enable = true;
       config = {
-        userName = identity.username;
-        userEmail = identity.email;
+        userName = "${identity.username}";
+        userEmail = "${identity.email}";
       };
     };
     fzf = {
