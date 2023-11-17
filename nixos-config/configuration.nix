@@ -67,10 +67,10 @@
     git = {
       enable = true;
       lfs.enable = true;
-#      config = {
-#        userName = identity.username;
-#        userEmail = identity.email;
-#      };
+      config = {
+        userName = identity.username;
+        userEmail = identity.email;
+      };
     };
     fzf = {
       keybindings = true;

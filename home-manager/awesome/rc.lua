@@ -204,11 +204,11 @@ awful.keyboard.append_global_keybindings({
 -- Custom
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "w", function()
-        awful.util.spawn("rofi -show window")
+        awful.util.spawn("rofi -show-icons -show window")
     end,
             { description = "rofi window", group = "rofi" }),
     awful.key({ modkey }, "r", function()
-        awful.util.spawn("rofi -show drun")
+        awful.util.spawn("rofi -show-icons -show drun")
     end,
             { description = "rofi drun", group = "rofi" }),
     awful.key({ modkey }, "c", function()
