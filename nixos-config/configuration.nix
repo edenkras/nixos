@@ -14,6 +14,7 @@
     overlays = [
       (final: prev: {
          awesome-git = prev.awesome.overrideAttrs (old: {
+           pname = "awesome-git";
            version = "git-7ed4dd";
            src = prev.fetchFromGitHub {
              owner = "awesomewm";
@@ -41,7 +42,10 @@
       displayManager.startx.enable = true;
       layout = "us,il";
       xkbOptions = "eurosign:e,caps:escape";
-      windowManager.awesome.enable = true;
+      windowManager.awesome = {
+        enable = true;
+        package = pkgs.awesome-git;
+      };
     };
     openssh = {
       enable = true;
