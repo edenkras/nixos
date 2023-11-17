@@ -9,7 +9,12 @@
     grub.device = "/dev/nvme0n1";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      import ./overlays/awesome
+    ];
+  };
 
   networking = {
     hostName = "${identity.username}-${identity.host}";

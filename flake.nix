@@ -18,7 +18,7 @@
   in
   {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+    # Available through 'nixos-rebuild switch --flake .#your-hostname'
     nixosConfigurations = {
       "${identity.username}@${identity.host}" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system identity; };
