@@ -81,8 +81,7 @@
     fzf = {
       keybindings = true;
     };
-    nm-applet.enable = true;
-    nm-applet.indicator = false;
+    nm-applet.enable = false;
   };
 
   nix.settings = {
@@ -98,6 +97,18 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
+
+  security.sudo.extraRules = [
+    {
+      users = [ identity.username ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   system.stateVersion = "23.05";
 }
