@@ -36,6 +36,13 @@
     rofi = {
       enable = true;
       theme = "Arc-Dark";
+      font = "Fira Code 14";
+      plugins = with pkgs; [
+        rofi-systemd
+        rofi-screenshot
+        rofi-pulse-select
+        rofi-power-menu
+      ];
     };
     starship = {
       enable = true;
