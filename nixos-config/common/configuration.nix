@@ -35,13 +35,13 @@
       settings.X11Forwarding = true;
     };
     greenclip.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
+#    pipewire = {
+#      enable = true;
+#      alsa.enable = true;
+#      alsa.support32Bit = true;
+#      pulse.enable = true;
+#      jack.enable = true;
+#    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -103,6 +103,7 @@
   ];
 
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
