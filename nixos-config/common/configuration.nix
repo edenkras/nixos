@@ -9,9 +9,7 @@
     grub.device = "/dev/nvme0n1";
   };
 
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   networking = {
     hostName = "${identity.username}-${identity.host}";
@@ -39,12 +37,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-#    jq
+    jq
     yq
     google-chrome
     docker
     networkmanagerapplet
 
+    # work
     slack
     kubectl
     jetbrains-toolbox
