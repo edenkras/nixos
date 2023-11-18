@@ -34,6 +34,7 @@
       enable = true;
       settings.X11Forwarding = true;
     };
+    greenclip.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -46,7 +47,10 @@
     # work
     slack
     kubectl
-    jetbrains-toolbox
+    jetbrains.webstorm
+    jetbrains.pycharm-professional
+    jetbrains.datagrip
+    jetbrains.idea-ultimate
     google-cloud-sdk
   ];
 

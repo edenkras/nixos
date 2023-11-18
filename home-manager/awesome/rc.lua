@@ -211,6 +211,10 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi -show-icons -show drun")
     end,
             { description = "rofi drun", group = "rofi" }),
+    awful.key({ modkey }, "e", function()
+        awful.util.spawn("rofi -show run")
+    end,
+            { description = "rofi run", group = "rofi" }),
     awful.key({ modkey }, "c", function()
         awful.util.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'")
     end,
