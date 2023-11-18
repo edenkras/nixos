@@ -26,7 +26,7 @@
       enable = true;
       displayManager.startx.enable = true;
       layout = "us,il";
-      xkbVariant = "workman,";
+      xkbVariant = ",";
       xkbOptions = "grp:win_space_toggle";
       windowManager.awesome = {
         enable = true;
