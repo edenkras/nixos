@@ -31,9 +31,7 @@
     wezterm = {
       enable = true;
       enableBashIntegration = true;
-      extraConfig = ''
-        hide_tab_bar_if_only_one_tab = true
-      '';
+      extraConfig = builtins.readFile ./wezterm.lua;
     };
     rofi = {
       enable = true;

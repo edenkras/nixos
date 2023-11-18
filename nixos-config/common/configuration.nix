@@ -61,6 +61,7 @@
     jetbrains.idea-ultimate
     google-cloud-sdk
     sops
+    zoom
   ];
 
   programs = {
@@ -95,6 +96,11 @@
       keybindings = true;
     };
   };
+
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+  ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
