@@ -1,6 +1,7 @@
-{ identity, config, pkgs, ... }:
-
-{
+{ extraArgs, config, pkgs, ... }:
+let
+  inherit (extraArgs) identity stateVersion;
+in {
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader = {
@@ -89,7 +90,6 @@
     auto-optimise-store = true;
   };
 
-  # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
@@ -110,5 +110,5 @@
     }
   ];
 
-  system.stateVersion = "23.05";
+  system.stateVersion = stateVersion;
 }

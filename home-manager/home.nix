@@ -1,20 +1,15 @@
 # https://mipmip.github.io/home-manager-option-search/
 {
   inputs,
-  identity,
+  extraArgs,
   lib,
   config,
   pkgs,
   ...
-}: {
-  imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-  ];
-
+}:
+let
+  inherit (extraArgs) identity stateVersion;
+in {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -25,7 +20,7 @@
   home = {
     username = identity.username;
     homeDirectory = "/home/${identity.username}";
-    stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = stateVersion;
     file = {
       ".xinitrc".source = ./xinitrc;
     };
@@ -36,6 +31,9 @@
     wezterm = {
       enable = true;
       enableBashIntegration = true;
+      extraConfig = ''
+        hide_tab_bar_if_only_one_tab = true
+      '';
     };
     rofi = {
       enable = true;
