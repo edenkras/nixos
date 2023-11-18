@@ -102,6 +102,8 @@
     fira-code-symbols
   ];
 
+  sound.enable = true;
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
