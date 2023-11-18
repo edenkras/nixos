@@ -43,6 +43,7 @@
     yq
     google-chrome
     docker
+    networkmanagerapplet
 
     slack
     kubectl
@@ -81,7 +82,6 @@
     fzf = {
       keybindings = true;
     };
-    nm-applet.enable = true;
   };
 
   nix.settings = {
