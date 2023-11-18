@@ -26,7 +26,7 @@
       enable = true;
       displayManager.startx.enable = true;
       layout = "us,il";
-      xkbOptions = "eurosign:e,caps:escape";
+      xkbOptions = "grp:win_space_toggle";
       windowManager.awesome = {
         enable = true;
         package = import ./awesome-git.nix pkgs;
