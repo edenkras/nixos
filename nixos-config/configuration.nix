@@ -38,6 +38,7 @@
       settings.X11Forwarding = true;
     };
   };
+  services.getty.tty1.enable = false;
 
   environment.systemPackages = with pkgs; [
     jq
