@@ -31,7 +31,6 @@
         enable = true;
         package = import ./awesome-git.nix pkgs;
       };
-      displayManager.defaultSession = "none+awesome";
     };
     openssh = {
       enable = true;
@@ -43,11 +42,12 @@
     jq
     yq
     google-chrome
+    docker
+
     slack
     kubectl
     jetbrains-toolbox
     google-cloud-sdk
-    docker
   ];
 
   programs = {
@@ -58,6 +58,9 @@
         ls = "ls --color=auto";
         ll = "ls -la";
       };
+      loginShellInit = ''
+        [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+      '';
     };
     neovim = {
       enable = true;
