@@ -1,15 +1,15 @@
 # https://mipmip.github.io/home-manager-option-search/
 {
   inputs,
-  extraArgs,
+  identity,
+  stateVersion,
   lib,
   config,
   pkgs,
   ...
 }:
-let
-  inherit (extraArgs) identity stateVersion;
-in {
+
+{
   nixpkgs = {
     config = {
       allowUnfree = true;

@@ -1,6 +1,5 @@
-{ extraArgs, config, pkgs, ... }:
-let
-  inherit (extraArgs) identity;
-in {
+{ identity, config, pkgs, ... }:
+
+{
 
 }

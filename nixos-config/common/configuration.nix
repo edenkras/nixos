@@ -1,7 +1,6 @@
-{ extraArgs, config, pkgs, ... }:
-let
-  inherit (extraArgs) identity stateVersion;
-in {
+{ identity, stateVersion, config, pkgs, ... }:
+
+{
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader = {
