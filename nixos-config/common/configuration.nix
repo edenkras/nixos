@@ -35,6 +35,13 @@
       settings.X11Forwarding = true;
     };
     greenclip.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -94,25 +101,25 @@
     auto-optimise-store = true;
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   users.users.${identity.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
 
-  security.sudo.extraRules = [
-    {
-      users = [ identity.username ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
+  security = {
+    rtkit.enable = true;
+    sudo.extraRules = [
+      {
+        users = [ identity.username ];
+        commands = [
+          {
+            command = "ALL";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
+  };
 
   system.stateVersion = stateVersion;
 }
