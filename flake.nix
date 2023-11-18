@@ -27,7 +27,7 @@
         specialArgs = { inherit system extraArgs; };
         modules = [
           ./nixos-config/common/configuration.nix
-          ./nixos-config/"${identity.username}-${identity.host}.nix"
+          (./nixos-config + "/${identity.username}-${identity.host}.nix")
           home-manager.nixosModules.home-manager
           {
             home-manager = {
