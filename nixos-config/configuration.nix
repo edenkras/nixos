@@ -25,7 +25,7 @@
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
-      layout = "us,he";
+      layout = "us,il";
       xkbOptions = "grp:win_space_toggle";
       windowManager.awesome = {
         enable = true;
