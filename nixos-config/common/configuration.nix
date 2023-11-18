@@ -47,11 +47,13 @@
     # work
     slack
     kubectl
+    k9s
     jetbrains.webstorm
     jetbrains.pycharm-professional
     jetbrains.datagrip
     jetbrains.idea-ultimate
     google-cloud-sdk
+    sops
   ];
 
   programs = {

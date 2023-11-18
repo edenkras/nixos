@@ -39,6 +39,11 @@
       enable = true;
       theme = "Arc-Dark";
     };
+    starship = {
+      enable = true;
+      enableBashIntegration = true;
+      settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+    };
   };
 
   xdg.configFile = {
