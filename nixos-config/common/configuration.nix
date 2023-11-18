@@ -39,7 +39,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    jq
+#    jq
     yq
     google-chrome
     docker
