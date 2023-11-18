@@ -21,11 +21,11 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild switch --flake .#your-hostname'
     nixosConfigurations = {
-      "${identity.username}@${identity.host}" = nixpkgs.lib.nixosSystem {
+      ${identity.host} = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system stateVersion identity; };
         modules = [
           ./nixos-config/common/configuration.nix
-          (./nixos-config + "/${identity.username}-${identity.host}.nix")
+          (./nixos-config + "/${identity.host}.nix")
           home-manager.nixosModules.home-manager
           {
             home-manager = {

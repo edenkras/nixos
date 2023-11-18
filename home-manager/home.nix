@@ -39,7 +39,6 @@
       enable = true;
       theme = "Arc-Dark";
     };
-    k9s.enable = false;
   };
 
   xdg.configFile = {
