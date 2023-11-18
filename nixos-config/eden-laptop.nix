@@ -3,5 +3,7 @@
 {
   environment.systemPackages = with pkgs; [];
 
-  programs = {};
+  programs = {
+    neovim.enable = false;
+  };
 }
