@@ -82,6 +82,7 @@
       keybindings = true;
     };
     nm-applet.enable = true;
+    nm-applet.indicator = false;
   };
 
   nix.settings = {
