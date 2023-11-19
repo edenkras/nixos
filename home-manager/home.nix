@@ -30,7 +30,7 @@ in {
       rofi-screenshot
       rofi-pulse-select
       rofi-power-menu
-    ] ++ import ./scripts;
+    ] ++ import ./scripts pkgs;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
 
