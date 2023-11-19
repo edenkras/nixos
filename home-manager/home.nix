@@ -29,6 +29,7 @@ in {
     username = identity.username;
     file = {
       ".xinitrc".source = ./xinitrc;
+      ".icons/default".source = "${pkgs.quintom-cursor-theme}/share/icons/Quintom_Ink";
     };
     packages = with pkgs; [
       rofi-systemd
@@ -79,6 +80,5 @@ in {
     };
   };
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }

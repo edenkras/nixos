@@ -54,6 +54,8 @@
     google-chrome
     networkmanagerapplet
     arandr
+    numlockx
+    discord
 
     # work
     slack
@@ -63,7 +65,7 @@
     jetbrains.pycharm-professional
     jetbrains.datagrip
     jetbrains.idea-ultimate
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     sops
     zoom
   ];
@@ -77,6 +79,7 @@
         grep = "grep --color=auto";
         ls = "ls --color=auto";
         ll = "ls -la";
+        k = "kubectl";
       };
       loginShellInit = ''
         [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
