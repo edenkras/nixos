@@ -60,6 +60,12 @@
     networkmanagerapplet
     arandr
     discord
+    (pkgs.writeTextFile {
+        name = "myScript";
+        text = ''
+          echo "hello world"
+        '';
+    })
 
     # work
     slack
@@ -73,13 +79,6 @@
     sops
     zoom
   ];
-
-  myScript = pkgs.writeTextFile {
-    name = "myScript";
-    text = ''
-      echo "hello world"
-    '';
-  };
 
   virtualisation.docker.enable = true;
 
