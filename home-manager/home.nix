@@ -10,12 +10,6 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
-  xdg = {
-    configHome = "${homeDirectory}/.config";
-    cacheHome = "${homeDirectory}/.cache";
-    dataHome = "${homeDirectory}/.local/share";
-    stateHome = "${homeDirectory}/.local/state";
-  };
 in {
   nixpkgs = {
     config = {
@@ -37,20 +31,7 @@ in {
       rofi-pulse-select
       rofi-power-menu
     ];
-    sessionVariables = {
-      PASSWORD_STORE_DIR="${xdg.dataHome}/pass";
-      NODE_REPL_HISTORY="${xdg.dataHome}/node_repl_history";
-      _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${xdg.configHome}/java";
-      PYENV_ROOT="${xdg.dataHome}/pyenv";
-      CARGO_HOME="${xdg.dataHome}/cargo";
-      RUSTUP_HOME="${xdg.dataHome}/rustup";
-      DOCKER_CONFIG="${xdg.configHome}/docker";
-      GRADLE_USER_HOME="${xdg.dataHome}/gradle";
-      GOPATH="${xdg.dataHome}/go";
-      GOMODCACHE="${xdg.cacheHome}/go/mod";
-      CUDA_CACHE_PATH="${xdg.cacheHome}/nv";
-      K9SCONFIG="${xdg.configHome}/k9s";
-    };
+    sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
 
   programs = {

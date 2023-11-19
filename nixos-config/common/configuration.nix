@@ -22,7 +22,12 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.startx.enable = true;
+      displayManager = {
+        startx.enable = true;
+        setupCommands = ''
+          ${pkgs.numlockx}/bin/numlockx on
+        '';
+      };
       layout = "us,il";
       xkb.options = "grp:win_space_toggle";
       windowManager.awesome = {
@@ -54,7 +59,6 @@
     google-chrome
     networkmanagerapplet
     arandr
-    numlockx
     discord
 
     # work
@@ -69,6 +73,13 @@
     sops
     zoom
   ];
+
+  myScript = pkgs.writeTextFile {
+    name = "myScript";
+    text = ''
+      echo "hello world"
+    '';
+  };
 
   virtualisation.docker.enable = true;
 
