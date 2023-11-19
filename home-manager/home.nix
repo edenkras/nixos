@@ -10,6 +10,7 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
+  scripts = import ./scripts;
 in {
   nixpkgs = {
     config = {
@@ -30,16 +31,7 @@ in {
       rofi-screenshot
       rofi-pulse-select
       rofi-power-menu
-      (writeShellScriptBin "myScript" (builtins.readFile ./gcloud-init.sh))
-      (symlinkJoin {
-        name = "hello";
-        paths = [ hello ];
-        buildInputs = [ makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/hello \
-            --add-flags "-t"
-        '';
-      })
+      scripts.gcloud-init
     ];
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
