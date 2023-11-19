@@ -18,4 +18,4 @@
 #        gcloud --configuration $project auth activate-service-account --key-file "$key_file_path"
 #        gcloud --configuration $project config set project $project
 #done
-gcloud config list
+echo "$1"
