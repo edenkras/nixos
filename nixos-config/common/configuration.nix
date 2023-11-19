@@ -65,6 +65,8 @@
         text = ''
           echo "hello world"
         '';
+        executable = true;
+        destination = "/bin/myScript";
     })
 
     # work
