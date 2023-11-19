@@ -10,7 +10,6 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
-  scripts = import ./scripts;
 in {
   nixpkgs = {
     config = {
@@ -31,8 +30,7 @@ in {
       rofi-screenshot
       rofi-pulse-select
       rofi-power-menu
-      scripts.gcloud-init
-    ];
+    ] ++ import ./scripts;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
 
