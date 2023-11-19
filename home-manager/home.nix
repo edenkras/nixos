@@ -30,6 +30,11 @@ in {
       rofi-screenshot
       rofi-pulse-select
       rofi-power-menu
+      (writeShellScriptBin "myScript"
+        ''
+          echo "hello world"
+        ''
+      )
     ];
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };

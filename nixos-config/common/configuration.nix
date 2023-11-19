@@ -60,14 +60,6 @@
     networkmanagerapplet
     arandr
     discord
-    (pkgs.writeTextFile {
-        name = "myScript";
-        text = ''
-          echo "hello world"
-        '';
-        executable = true;
-        destination = "/bin/myScript";
-    })
 
     # work
     slack
