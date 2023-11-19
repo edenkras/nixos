@@ -29,6 +29,10 @@
         enable = true;
         package = import ./awesome-git.nix pkgs;
       };
+      libinput = {
+        touchpad.naturalScrolling = true;
+        mouse.naturalScrolling = false;
+      };
     };
     openssh = {
       enable = true;
@@ -48,8 +52,8 @@
     jq
     yq
     google-chrome
-    docker
     networkmanagerapplet
+    arandr
 
     # work
     slack
@@ -63,6 +67,8 @@
     sops
     zoom
   ];
+
+  virtualisation.docker.enable = true;
 
   programs = {
     bash = {
@@ -112,7 +118,7 @@
 
   users.users.${identity.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
   };
 
   security = {

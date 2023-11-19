@@ -56,29 +56,6 @@ modkey = "Mod4"
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
-local gpu_temp_widget = wibox.widget {
-    {
-        id = "txt",
-        font = beautiful.font,
-        widget = wibox.widget.textbox,
-    },
-    layout = wibox.layout.fixed.horizontal,
-}
-
---gears.timer {
---    timeout = 10,
---    call_now = true,
---    autostart = true,
---    callback = function()
---        awful.spawn.easy_async(
---                { "bash", "-c", "cat /sys/class/drm/card*/device/hwmon/hwmon2/temp1_input" },
---                function(out)
---                    gpu_temp_widget:get_children_by_id("txt")[1]:set_text((out // 1000) .. "C")
---                end
---        )
---    end
---}
-
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
@@ -109,9 +86,6 @@ end)
 -- }}}
 
 -- {{{ Wibar
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -152,11 +126,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 s.mytasklist, -- Middle widget
                 { -- Right widgets
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = 10,
                     volume_widget {
                         widget_type = 'arc'
                     },
-                    mykeyboardlayout,
+                    awful.widget.keyboardlayout(),
                     wibox.widget.systray(),
                     mytextclock,
                 },
@@ -174,8 +147,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 s.mytasklist, -- Middle widget
                 { -- Right widgets
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = 10,
-                    gpu_temp_widget,
                     mytextclock,
                 },
             }
@@ -211,10 +182,10 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi -show-icons -show drun")
     end,
             { description = "rofi drun", group = "rofi" }),
-    awful.key({ modkey }, "e", function()
-        awful.util.spawn("rofi -show run")
+    awful.key({ modkey }, "p", function()
+        awful.util.spawn("rofi -modi \"power:rofi-power-menu\" -show power")
     end,
-            { description = "rofi run", group = "rofi" }),
+            { description = "rofi power menu", group = "rofi" }),
     awful.key({ modkey }, "c", function()
         awful.util.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'")
     end,
@@ -320,7 +291,7 @@ ruled.client.connect_signal("request::rules", function()
         }
     }
 
-    if not sideScreen == nil then
+    if sideScreen ~= nil then
         ruled.client.append_rule {
             rule_any = { class = { "discord", "Slack" } },
             properties = {
