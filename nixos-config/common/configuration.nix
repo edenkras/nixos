@@ -117,14 +117,11 @@
   ];
 
   systemd.user.services = {
-    greenclip = pkgs.lib.mkAfter greenclip // {
-#      enable = true;
-      wantedBy = [ ];
-      after = [ ];
-#      startLimitIntervalSec = 0;
-#      serviceConfig = {
-#        Restart = "always";
-#      };
+    greenclip = pkgs.lib.mkOption {
+      apply = old: old // {
+        wantedBy = [ ];
+        after = [ ];
+      };
     };
   };
 
