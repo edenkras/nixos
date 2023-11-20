@@ -190,10 +190,6 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'")
     end,
             { description = "rofi clipboard manager", group = "rofi" }),
-    awful.key({ modkey }, "l", function()
-        awful.util.spawn("wezterm -e bash -c 'sleep 0.5; xset dpms force off'")
-    end,
-            { description = "turn off screen", group = "power" }),
     cyclefocus.key({ modkey }, "Tab", {
         move_mouse_pointer = false,
         cycle_filters = { cyclefocus.filters.same_screen },

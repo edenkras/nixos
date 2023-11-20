@@ -20,4 +20,5 @@ in {
   GOMODCACHE="${cacheHome}/go/mod";
   CUDA_CACHE_PATH="${cacheHome}/nv";
   K9SCONFIG="${configHome}/k9s";
+  KUBECONFIG="${configHome}/kube";
 }

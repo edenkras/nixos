@@ -39,7 +39,6 @@ in {
     };
     rofi = {
       enable = true;
-#      theme = "Arc-Dark";
       configPath = "";
       plugins = with pkgs; [
         rofi-systemd
