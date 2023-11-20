@@ -1,8 +1,8 @@
-{ stdenv, pkgs }:
+pkgs:
 
 let
   pname = "rofi-blocks";
-in stdenv.mkDerivation {
+in pkgs.stdenv.mkDerivation {
   name = pname;
   src = pkgs.fetchFromGitHub {
     owner = "OmarCastro";
