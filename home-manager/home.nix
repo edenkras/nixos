@@ -40,10 +40,6 @@ in {
     rofi = {
       enable = true;
       theme = "Arc-Dark";
-      font = "Fira Code 14";
-      extraConfig = {
-         show-icons = true;
-      };
       plugins = with pkgs; [
         rofi-systemd
         rofi-screenshot
