@@ -31,6 +31,7 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
+      rofi-blocks
       rofi-search
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./session-variables.nix homeDirectory;
