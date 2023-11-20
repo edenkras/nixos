@@ -15,8 +15,12 @@ in pkgs.stdenv.mkDerivation {
     autoreconf -i
     mkdir build
     cd build/
+    chmod +x $out
     ../configure
+    make
+    make install
   '';
   installPhase = ''
+    mkdir -p $out/bin
   '';
 }
