@@ -15,7 +15,7 @@ in pkgs.stdenv.mkDerivation {
     autoreconf -i
     mkdir build
     cd build/
-    chmod +x $out
+    chmod +x ${pkgs.rofi}
     ../configure
     make
     make install
