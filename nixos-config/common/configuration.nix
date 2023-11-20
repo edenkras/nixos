@@ -114,7 +114,7 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
-    nerdfont
+    nerdfonts
   ];
 
   systemd.user.services = {
