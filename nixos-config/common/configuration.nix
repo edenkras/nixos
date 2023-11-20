@@ -43,7 +43,6 @@
       enable = true;
       settings.X11Forwarding = true;
     };
-    greenclip.enable = true;
 #    pipewire = {
 #      enable = true;
 #      alsa.enable = true;
@@ -64,6 +63,7 @@
     # work
     slack
     kubectl
+    kubectx
     k9s
     jetbrains.webstorm
     jetbrains.pycharm-professional

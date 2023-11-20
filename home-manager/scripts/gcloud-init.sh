@@ -5,7 +5,8 @@
 #svc_account_map=$(curl -sS --header "PRIVATE-TOKEN: $token" "https:/$gitlab_domain/api/v4/admin/ci/variables" | jq -rc '.[] | select(.key | contains("svc")) | .key + "=" + (.value | @sh)')
 #eval "$svc_account_map"
 #
-#key_file_base_path="$HOME/walmart/.svc"
+#key_file_base_path="$WORK_DIR/.svc"
+#rm -rf $key_file_base_path
 #mkdir -p $key_file_base_path
 #for var_name in "${!svc_deploy_mgmt_@}"; do
 #        declare -n var_value=$var_name
