@@ -23,6 +23,6 @@ in pkgs.symlinkJoin {
   postBuild = ''
     mkdir $out/.bin;
     mv $out/bin/* $out/.bin;
-    makeWrapper $out/.bin/${pname} $out/bin/${pname} --set PATH $out/bin
+    makeWrapper $out/.bin/${pname} $out/bin/${pname} --set PATH $out/.bin
   '';
 }
