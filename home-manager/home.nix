@@ -47,7 +47,7 @@ in {
       theme = "Arc-Dark";
       font = "Fira Code 14";
       extraConfig = {
-         element-icon.size = "5ch";
+         show-icons = true;
       };
     };
     starship = {
