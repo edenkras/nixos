@@ -60,7 +60,6 @@
     networkmanagerapplet
     arandr
     discord
-#    haskellPackages.greenclip
 
     # work
     slack
@@ -117,19 +116,17 @@
     fira-code-symbols
   ];
 
-#  systemd.user.services = {
-#    greenclip = {
+  systemd.user.services = {
+    greenclip = greenclip // {
 #      enable = true;
-#      description = "greenclip daemon";
-#      wantedBy = [ "graphical-session.target" ];
-#      after = [ "graphical-session.target" ];
+      wantedBy = [ ];
+      after = [ ];
 #      startLimitIntervalSec = 0;
 #      serviceConfig = {
-#        ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
 #        Restart = "always";
 #      };
-#    };
-#  };
+    };
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
