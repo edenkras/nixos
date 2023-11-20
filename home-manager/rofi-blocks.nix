@@ -20,6 +20,5 @@ in pkgs.stdenv.mkDerivation {
     make install
   '';
   installPhase = ''
-    mkdir -p $out/bin
   '';
 }
