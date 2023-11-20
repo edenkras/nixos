@@ -43,7 +43,6 @@
       enable = true;
       settings.X11Forwarding = true;
     };
-    greenclip.enable = true;
 #    pipewire = {
 #      enable = true;
 #      alsa.enable = true;
@@ -60,6 +59,7 @@
     networkmanagerapplet
     arandr
     discord
+    haskellPackages.greenclip
 
     # work
     slack
@@ -115,6 +115,20 @@
     fira-code
     fira-code-symbols
   ];
+
+  systemd.user.services = {
+    greenclip = {
+      enable = true;
+      description = "greenclip daemon";
+      wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      startLimitIntervalSec = 0;
+      serviceConfig = {
+        ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
+        Restart = "always";
+      };
+    };
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
