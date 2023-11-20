@@ -66,8 +66,8 @@ in {
     startServices = "sd-switch"; # Nicely reload system units when changing configs
     services.greenclip = {
       Unit.Description = "greenclip daemon";
+      Unit.After = [ "multi-user.target" ];
       Install.WantedBy = [ "multi-user.target" ];
-      Install.After = [ "multi-user.target" ];
       Service.ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
     };
   };
