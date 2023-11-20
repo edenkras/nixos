@@ -18,7 +18,7 @@ let
   });
 in pkgs.symlinkJoin {
   name = pname;
-  paths = [ rofi-search pkgs.nodejs_21 ];
+  paths = [ rofi-search pkgs.nodejs_21 pkgs.ddgr ];
   buildInputs = [ pkgs.makeWrapper ];
   postBuild = "wrapProgram $out/bin/${pname} --set PATH $out/bin";
 }
