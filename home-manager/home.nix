@@ -6,10 +6,12 @@
   lib,
   config,
   pkgs,
+  stdenv,
   ...
 }:
 let
   homeDirectory = "/home/${identity.username}";
+  rofi-blocks = import ./rofi-blocks.nix { inherit stdenv pkgs; };
   rofi-search = import ./rofi-search.nix pkgs;
 in {
   nixpkgs = {
