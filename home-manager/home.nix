@@ -10,6 +10,7 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
+  rofi-search = import ./rofi-search.nix pkgs;
 in {
   nixpkgs = {
     config = {
@@ -28,8 +29,9 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
+      rofi-search
     ] ++ import ./scripts pkgs;
-    sessionVariables = import ./sessionVariables.nix homeDirectory;
+    sessionVariables = import ./session-variables.nix homeDirectory;
   };
 
   programs = {

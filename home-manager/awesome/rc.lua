@@ -183,7 +183,7 @@ awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "c", function()
         awful.util.spawn("rofi -show clipboard")
     end,
-            { description = "rofi clipboard manager", group = "rofi" }),
+            { description = "rofi clipboard history", group = "rofi" }),
     awful.key({ modkey }, "s", function()
         awful.util.spawn("rofi-systemd")
     end,
