@@ -65,7 +65,6 @@ in {
   systemd.user = {
     startServices = "sd-switch"; # Nicely reload system units when changing configs
     services.greenclip = {
-      enable = true;
       unit.description = "greenclip daemon";
       install.wantedBy = [ "multi-user.target" ];
       install.after = [ "multi-user.target" ];
