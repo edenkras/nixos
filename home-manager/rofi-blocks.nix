@@ -15,9 +15,7 @@ in pkgs.stdenv.mkDerivation {
     autoreconf -i
     mkdir build
     cd build/
-    ../configure --prefix=$out
-    make
-    make install
+    ../configure
   '';
   installPhase = ''
   '';
