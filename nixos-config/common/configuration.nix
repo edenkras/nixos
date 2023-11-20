@@ -149,7 +149,11 @@
     description = "greenclip daemon";
     wantedBy = [ "multi-user.target" ];
     after = [ "multi-user.target" ];
-    serviceConfig.ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
+    startLimitIntervalSec = 0;
+    serviceConfig = {
+      ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
+      Restart = "always";
+    };
   };
 
   system.stateVersion = stateVersion;
