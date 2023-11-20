@@ -43,6 +43,7 @@
       enable = true;
       settings.X11Forwarding = true;
     };
+    greenclip.enable = true;
 #    pipewire = {
 #      enable = true;
 #      alsa.enable = true;
@@ -59,7 +60,6 @@
     networkmanagerapplet
     arandr
     discord
-    haskellPackages.greenclip
 
     # work
     slack
@@ -142,18 +142,6 @@
         ];
       }
     ];
-  };
-
-  systemd.user.services.greenclip = {
-    enable = true;
-    description = "greenclip daemon";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ];
-    startLimitIntervalSec = 0;
-    serviceConfig = {
-      ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
-      Restart = "always";
-    };
   };
 
   system.stateVersion = stateVersion;
