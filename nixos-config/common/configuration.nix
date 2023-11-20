@@ -114,6 +114,7 @@
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
+    jetbrains-mono
   ];
 
   systemd.user.services = {
