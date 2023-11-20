@@ -20,5 +20,5 @@ in pkgs.symlinkJoin {
   name = pname;
   paths = [ rofi-search pkgs.nodejs_21 ];
   buildInputs = [ pkgs.makeWrapper ];
-  postBuild = "wrapProgram $out/bin/rofi-search --set PATH : $out/bin";
+  postBuild = "wrapProgram $out/bin/${pname} --set PATH $out/bin";
 }
