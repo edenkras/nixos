@@ -49,7 +49,6 @@ in {
       extraConfig = {
          modes = "window,drun,ssh,power:rofi-power-menu,clipboard:greenclip print";
          ssh-command = "{terminal} {ssh-client} {host} [-p {port}]";
-         show-icons = true;
       };
     };
     starship = {
