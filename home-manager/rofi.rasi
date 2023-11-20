@@ -1,5 +1,5 @@
 configuration {
-  modes: "window,drun,ssh,power:rofi-power-menu";
+  modes: "window,drun,ssh,power:rofi-power-menu,clipboard:greenclip print";
   font: "Fira Code 14";
   location: 0;
   yoffset: 0;

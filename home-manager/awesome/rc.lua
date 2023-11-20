@@ -183,11 +183,11 @@ awful.keyboard.append_global_keybindings({
     end,
             { description = "rofi drun", group = "rofi" }),
     awful.key({ modkey }, "p", function()
-        awful.util.spawn("rofi -modi \"power:rofi-power-menu\" -show power")
+        awful.util.spawn("rofi -show power")
     end,
             { description = "rofi power menu", group = "rofi" }),
     awful.key({ modkey }, "c", function()
-        awful.util.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'")
+        awful.util.spawn("rofi -show clipboard -run-command '{cmd}'")
     end,
             { description = "rofi clipboard manager", group = "rofi" }),
     cyclefocus.key({ modkey }, "Tab", {

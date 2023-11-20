@@ -25,7 +25,12 @@ in {
       ".xinitrc".source = ./xinitrc;
       ".icons/default".source = "${pkgs.quintom-cursor-theme}/share/icons/Quintom_Ink";
     };
-    packages = with pkgs; [] ++ import ./scripts pkgs;
+    packages = with pkgs; [
+      rofi-systemd
+      rofi-screenshot
+      rofi-pulse-select
+      rofi-power-menu
+    ] ++ import ./scripts pkgs;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
 
@@ -40,12 +45,6 @@ in {
     rofi = {
       enable = true;
       configPath = "";
-      plugins = with pkgs; [
-        rofi-systemd
-        rofi-screenshot
-        rofi-pulse-select
-        rofi-power-menu
-      ];
     };
     starship = {
       enable = true;
