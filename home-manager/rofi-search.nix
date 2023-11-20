@@ -2,7 +2,7 @@ pkgs:
 
 let
   rofi-search = (
-    pkgs.writeScript "rofi-search" (
+    pkgs.writeScriptBin "rofi-search" (
       builtins.readFile (
         pkgs.fetchFromGitHub {
           owner = "fogine";
