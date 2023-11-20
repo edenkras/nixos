@@ -1,7 +1,7 @@
 pkgs:
 
 pkgs.writeShellScriptBin "rofi-search" (builtins.readFile (
-  fetchFromGitHub {
+  pkgs.fetchFromGitHub {
     owner = "fogine";
     repo = "rofi-search";
     rev = "1.1.0";
