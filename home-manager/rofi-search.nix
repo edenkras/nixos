@@ -1,8 +1,9 @@
 pkgs:
 
 let
+  pname = "rofi-search";
   rofi-search = (
-    pkgs.writeScriptBin "rofi-search" (
+    pkgs.writeScriptBin pname (
       builtins.readFile (
         pkgs.fetchFromGitHub {
           owner = "fogine";
@@ -15,9 +16,9 @@ let
   ).overrideAttrs(old: {
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });
-in pkgs.symlinkJoin rec {
-  name = "rofi-search";
+in pkgs.symlinkJoin {
+  name = pname;
   paths = [ rofi-search pkgs.nodejs_21 ];
   buildInputs = [ pkgs.makeWrapper ];
-  postBuild = "wrapProgram $out/bin/${name} --set PATH : $out/bin";
+  postBuild = "wrapProgram $out/bin/${pname} --set PATH : $out/bin";
 }
