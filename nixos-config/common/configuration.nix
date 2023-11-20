@@ -43,7 +43,7 @@
       enable = true;
       settings.X11Forwarding = true;
     };
-#    greenclip.enable = true;
+    greenclip.enable = true;
 #    pipewire = {
 #      enable = true;
 #      alsa.enable = true;
