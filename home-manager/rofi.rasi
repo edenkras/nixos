@@ -10,5 +10,5 @@ configuration {
 @theme "Arc-Dark"
 
 element-icon {
-  size: 5ch;
+  size: 3ch;
 }

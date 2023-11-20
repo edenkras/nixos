@@ -26,6 +26,7 @@ in {
       ".icons/default".source = "${pkgs.quintom-cursor-theme}/share/icons/Quintom_Ink";
     };
     packages = with pkgs; [
+      rofi
       rofi-systemd
       rofi-screenshot
       rofi-pulse-select
@@ -41,10 +42,6 @@ in {
       enable = true;
       enableBashIntegration = true;
       extraConfig = builtins.readFile ./wezterm.lua;
-    };
-    rofi = {
-      enable = true;
-      configPath = "";
     };
     starship = {
       enable = true;
