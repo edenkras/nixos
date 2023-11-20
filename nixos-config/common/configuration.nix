@@ -121,10 +121,10 @@
       enable = true;
       description = "greenclip daemon";
       wantedBy = [ "default.target" ];
-#      startLimitIntervalSec = 0;
+      startLimitIntervalSec = 0;
       serviceConfig = {
         ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
-#        Restart = "always";
+        Restart = "always";
       };
     };
   };
