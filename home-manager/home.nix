@@ -30,7 +30,6 @@ in {
       rofi-screenshot
       rofi-pulse-select
       rofi-power-menu
-      haskellPackages.greenclip
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
@@ -62,13 +61,5 @@ in {
     };
   };
 
-  systemd.user = {
-    startServices = "sd-switch"; # Nicely reload system units when changing configs
-    services.greenclip = {
-      Unit.Description = "greenclip daemon";
-      Unit.After = [ "multi-user.target" ];
-      Install.WantedBy = [ "multi-user.target" ];
-      Service.ExecStart = "${pkgs.haskellPackages.greenclip}/bin/greenclip daemon";
-    };
-  };
+  systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }

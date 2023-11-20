@@ -59,6 +59,7 @@
     networkmanagerapplet
     arandr
     discord
+    haskellPackages.greenclip
 
     # work
     slack
@@ -141,6 +142,14 @@
         ];
       }
     ];
+  };
+
+  systemd.user.services.greenclip = {
+    enable = true;
+    description = "greenclip daemon";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig.ExecStart = "greenclip daemon";
   };
 
   system.stateVersion = stateVersion;
