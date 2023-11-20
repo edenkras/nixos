@@ -25,12 +25,7 @@ in {
       ".xinitrc".source = ./xinitrc;
       ".icons/default".source = "${pkgs.quintom-cursor-theme}/share/icons/Quintom_Ink";
     };
-    packages = with pkgs; [
-      rofi-systemd
-      rofi-screenshot
-      rofi-pulse-select
-      rofi-power-menu
-    ] ++ import ./scripts pkgs;
+    packages = with pkgs; [] ++ import ./scripts pkgs;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
   };
 
@@ -49,6 +44,12 @@ in {
       extraConfig = {
          show-icons = true;
       };
+      plugins = with pkgs; [
+        rofi-systemd
+        rofi-screenshot
+        rofi-pulse-select
+        rofi-power-menu
+      ];
     };
     starship = {
       enable = true;
@@ -62,6 +63,7 @@ in {
       source = ./awesome;
       recursive = true;
     };
+    "rofi/config.rasi".source = ./rofi.rasi;
   };
 
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs

@@ -6,6 +6,7 @@ let
   dataHome = "${homeDir}/.local/share";
   stateHome = "${homeDir}/.local/state";
 in {
+  TERMINAL="wezterm";
   WORK_DIR="${homeDir}/walmart";
   PASSWORD_STORE_DIR="${dataHome}/pass";
   NODE_REPL_HISTORY="${dataHome}/node_repl_history";
