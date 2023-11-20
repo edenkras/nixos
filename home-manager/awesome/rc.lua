@@ -157,11 +157,9 @@ end)
 -- }}}
 
 -- {{{ Key bindings
-
--- General Awesome keys
 awful.keyboard.append_global_keybindings({
-    awful.key({ modkey, }, "s", hotkeys_popup.show_help,
-            { description = "show help", group = "awesome" }),
+    awful.key({ modkey, }, "k", hotkeys_popup.show_help,
+            { description = "keybindings", group = "awesome" }),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
             { description = "reload awesome", group = "awesome" }),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
@@ -170,10 +168,6 @@ awful.keyboard.append_global_keybindings({
         awful.spawn(terminal)
     end,
             { description = "open a terminal", group = "launcher" }),
-})
-
--- Custom
-awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "w", function()
         awful.util.spawn("rofi -show window -show-icons -theme-str 'element-icon { size: 3ch; margin: 0.5ch; }' -theme-str 'element-text { vertical-align: 0.5; }'")
     end,
@@ -190,6 +184,10 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi -show clipboard")
     end,
             { description = "rofi clipboard manager", group = "rofi" }),
+    awful.key({ modkey }, "s", function()
+        awful.util.spawn("rofi-systemd")
+    end,
+            { description = "rofi systemd", group = "rofi" }),
     cyclefocus.key({ modkey }, "Tab", {
         move_mouse_pointer = false,
         cycle_filters = { cyclefocus.filters.same_screen },
@@ -252,10 +250,6 @@ client.connect_signal("request::default_keybindings", function()
             c:move_to_screen()
         end,
                 { description = "move to screen", group = "client" }),
-        awful.key({ modkey, }, "t", function(c)
-            c.ontop = not c.ontop
-        end,
-                { description = "toggle keep on top", group = "client" }),
         awful.key({ modkey, }, "n",
                 function(c)
                     c.minimized = true

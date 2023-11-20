@@ -27,8 +27,6 @@ in {
     };
     packages = with pkgs; [
       rofi-systemd
-      rofi-screenshot
-      rofi-pulse-select
       rofi-power-menu
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./sessionVariables.nix homeDirectory;
