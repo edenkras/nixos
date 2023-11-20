@@ -117,7 +117,7 @@
   ];
 
   systemd.user.services = {
-    greenclip = greenclip // {
+    greenclip = pkgs.lib.mkAfter greenclip // {
 #      enable = true;
       wantedBy = [ ];
       after = [ ];
