@@ -26,7 +26,6 @@ in {
       ".icons/default".source = "${pkgs.quintom-cursor-theme}/share/icons/Quintom_Ink";
     };
     packages = with pkgs; [
-      rofi
       rofi-systemd
       rofi-screenshot
       rofi-pulse-select
@@ -43,6 +42,15 @@ in {
       enableBashIntegration = true;
       extraConfig = builtins.readFile ./wezterm.lua;
     };
+    rofi = {
+      enable = true;
+      theme = "Arc-Dark";
+      font = "Fira Code 14";
+      extraConfig = {
+         modes = "window,drun,ssh,power:rofi-power-menu,clipboard:greenclip print";
+         ssh-command = "{terminal} {ssh-client} {host} [-p {port}]";
+      };
+    };
     starship = {
       enable = true;
       enableBashIntegration = true;
@@ -55,7 +63,6 @@ in {
       source = ./awesome;
       recursive = true;
     };
-    "rofi/config.rasi".source = ./rofi.rasi;
   };
 
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs

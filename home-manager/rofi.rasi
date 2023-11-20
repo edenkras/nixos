@@ -8,7 +8,3 @@ configuration {
   ssh-command: "{terminal} {ssh-client} {host} [-p {port}]";
 }
 @theme "Arc-Dark"
-
-element-icon {
-  size: 3ch;
-}

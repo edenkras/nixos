@@ -175,11 +175,11 @@ awful.keyboard.append_global_keybindings({
 -- Custom
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "w", function()
-        awful.util.spawn("rofi -show window")
+        awful.util.spawn("rofi -show window -theme-str 'element-icon { size: 3ch; }'")
     end,
             { description = "rofi window", group = "rofi" }),
     awful.key({ modkey }, "r", function()
-        awful.util.spawn("rofi -show drun")
+        awful.util.spawn("rofi -show drun -theme-str 'element-icon { size: 3ch; }'")
     end,
             { description = "rofi drun", group = "rofi" }),
     awful.key({ modkey }, "p", function()
