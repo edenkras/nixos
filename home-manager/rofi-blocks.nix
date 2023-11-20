@@ -11,15 +11,18 @@ in pkgs.stdenv.mkDerivation {
     sha256 = "sha256-U955hzd55xiV5XdQ18iUIwNLn2JrvuHsItgUSf6ww58=";
   };
   buildInputs = with pkgs; [ autoconf automake libtool pkg-config json-glib cairo rofi ];
-  buildPhase = ''
-    autoreconf -i
-    mkdir build
-    cd build/
-    ../configure
-    make
-    make install
+  preBuild = ''
+    echo $(pkg-config --variable=pluginsdir rofi)
   '';
-  installPhase = ''
-    mkdir -p $out/bin
-  '';
+#  buildPhase = ''
+#    autoreconf -i
+#    mkdir build
+#    cd build/
+#    ../configure
+#    make
+#    make install
+#  '';
+#  installPhase = ''
+#    mkdir -p $out/bin
+#  '';
 }
