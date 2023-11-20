@@ -11,7 +11,7 @@ in pkgs.stdenv.mkDerivation {
     sha256 = "sha256-U955hzd55xiV5XdQ18iUIwNLn2JrvuHsItgUSf6ww58=";
   };
   buildInputs = with pkgs; [ autoconf automake libtool pkg-config json-glib cairo rofi ];
-  preBuild = ''
+  installPhase = ''
     mkdir -p "$(pkg-config --variable=pluginsdir rofi)"
   '';
 #  buildPhase = ''
