@@ -28,7 +28,7 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
-#      (import ./rofi/rofi-blocks.nix pkgs)
+      (import ./rofi/rofi-blocks.nix pkgs)
       (import ./rofi/rofi-search.nix pkgs)
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./session-variables.nix homeDirectory;
@@ -44,7 +44,6 @@ in {
     };
     rofi = {
       enable = true;
-      package = import ./rofi/rofi-wrapper.nix pkgs;
       theme = "Arc-Dark";
       font = "Fira Code 16";
       extraConfig = {
