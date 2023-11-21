@@ -21,8 +21,8 @@ in pkgs.symlinkJoin {
   paths = with pkgs; [ rofi-search nodejs_21 ddgr which ];
   buildInputs = [ pkgs.makeWrapper ];
   postBuild = ''
-    mkdir $out/.bin;
-    mv $out/bin/* $out/.bin;
+    mkdir $out/.bin
+    mv $out/bin/* $out/.bin
     makeWrapper $out/.bin/${pname} $out/bin/${pname} --set PATH $out/.bin
   '';
 }

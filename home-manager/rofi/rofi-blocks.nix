@@ -14,15 +14,16 @@ in pkgs.stdenv.mkDerivation {
   preConfigure = ''
     sed -i 's@$PKG_CONFIG --variable=pluginsdir rofi@/home/eden/.local/share/rofi-plugins@g' configure.ac
   '';
-  buildPhase = ''
-    autoreconf -i
-    mkdir build
-    cd build/
-    ../configure
-    make
-    make install
-  '';
-#  installPhase = ''
-#    mkdir -p $out/bin
+#  buildPhase = ''
+#    autoreconf -i
+#    mkdir build
+#    cd build/
+#    ../configure
+#    make
+#    make install
 #  '';
+  installPhase = ''
+    mkdir -p $out/bin
+    cp configure.ac $out/bin/
+  '';
 }
