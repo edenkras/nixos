@@ -3,8 +3,8 @@ pkgs:
 let
   pname = "rofi-blocks";
   fake-rofi = pkgs.rofi-unwrapped.overrideAttrs (old: {
-    installPhase = old.installPhase or "" + ''
-      sed -i 's@$${libdir}/rofi@$${ROFI_PLUGINS_PATH}@g' $out/lib/pkgconfig/rofi.pc
+    preConfigure = old.preConfigure or "" + ''
+      sed -i 's@$${libdir}/rofi@$${ROFI_PLUGINS_PATH}@g' pkgconfig/rofi.pc.in
     '';
   });
 in pkgs.stdenv.mkDerivation {
