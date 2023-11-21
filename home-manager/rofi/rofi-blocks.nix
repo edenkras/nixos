@@ -12,7 +12,7 @@ in pkgs.stdenv.mkDerivation {
   };
   buildInputs = with pkgs; [ autoconf automake libtool pkg-config json-glib cairo rofi ];
   preConfigure = ''
-    sed -i 's@PKG_CONFIG --variable=pluginsdir rofi@ROFI_PLUGINS_PATH@g' configure.ac
+    sed -i 's@$PKG_CONFIG --variable=pluginsdir rofi@/home/eden/.local/share/rofi-plugins@g' configure.ac
   '';
   buildPhase = ''
     autoreconf -i
