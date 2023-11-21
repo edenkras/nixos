@@ -10,8 +10,6 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
-  rofi-blocks = import ./rofi-blocks.nix pkgs;
-  rofi-search = import ./rofi-search.nix pkgs;
 in {
   nixpkgs = {
     config = {
@@ -30,8 +28,8 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
-      rofi-blocks
-      rofi-search
+#      (import ./rofi-blocks.nix pkgs)
+      (import ./rofi-search.nix pkgs)
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./session-variables.nix homeDirectory;
   };
@@ -46,6 +44,7 @@ in {
     };
     rofi = {
       enable = true;
+      package = import ./rofi/rofi-wrapper.nix pkgs;
       theme = "Arc-Dark";
       font = "Fira Code 16";
       extraConfig = {
