@@ -12,8 +12,8 @@ pkgs.stdenv.mkDerivation {
     autoreconfHook
     pkg-config
     cairo
-#    rofi-unwrapped
-#    json-glib
+    rofi-unwrapped
+    json-glib
   ];
 #  buildInputs = with pkgs; [
 #    rofi-unwrapped
