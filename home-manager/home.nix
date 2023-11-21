@@ -28,8 +28,8 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
-#      (import ./rofi-blocks.nix pkgs)
-      (import ./rofi-search.nix pkgs)
+#      (import ./rofi/rofi-blocks.nix pkgs)
+      (import ./rofi/rofi-search.nix pkgs)
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./session-variables.nix homeDirectory;
   };
