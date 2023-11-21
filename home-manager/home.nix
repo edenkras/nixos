@@ -1,6 +1,5 @@
 # https://mipmip.github.io/home-manager-option-search/
 {
-  inputs,
   identity,
   stateVersion,
   lib,
@@ -28,7 +27,6 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
-      (import ./rofi/rofi-blocks.nix pkgs)
       (import ./rofi/rofi-search.nix pkgs)
     ] ++ import ./scripts pkgs;
     sessionVariables = import ./session-variables.nix homeDirectory;
@@ -50,6 +48,10 @@ in {
          modes = "power:rofi-power-menu,clipboard:greenclip print";
          ssh-command = "{terminal} {ssh-client} {host} [-p {port}]";
       };
+      plugins = with pkgs; [
+        rofi-top
+        (import ./rofi/rofi-blocks pkgs)
+      ];
     };
     starship = {
       enable = true;

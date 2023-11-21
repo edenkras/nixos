@@ -60,6 +60,7 @@
     arandr
     discord
     haskellPackages.greenclip
+    xclip
 
     # work
     slack

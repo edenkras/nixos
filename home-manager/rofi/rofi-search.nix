@@ -19,7 +19,7 @@ let
 in pkgs.symlinkJoin {
   name = pname;
   paths = with pkgs; [ rofi-search nodejs_21 ddgr which ];
-  buildInputs = [ pkgs.makeWrapper ];
+  nativeBuildInputs = [ pkgs.makeWrapper ];
   postBuild = ''
     mkdir $out/.bin
     mv $out/bin/* $out/.bin
