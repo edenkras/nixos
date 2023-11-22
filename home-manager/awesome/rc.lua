@@ -185,15 +185,15 @@ awful.keyboard.append_global_keybindings({
     end,
             { description = "rofi clipboard history", group = "rofi" }),
     awful.key({ modkey }, "s", function()
-        awful.util.spawn("rofi-systemd")
+        awful.util.spawn("rofi-systemd -theme-str 'window {width: 75%;}'")
     end,
             { description = "rofi systemd", group = "rofi" }),
     awful.key({ modkey }, "t", function()
-        awful.util.spawn("rofi -show top -modi top")
+        awful.util.spawn("rofi -show top -modi top -theme-str 'window {width: 75%;}'")
     end,
             { description = "rofi top", group = "rofi" }),
     awful.key({ modkey }, "g", function()
-        awful.util.spawn("rofi -modi blocks -blocks-wrap rofi-search -show blocks -lines 4 -eh 4 -kb-custom-1 'Control+y'")
+        awful.util.spawn("rofi -modi blocks -blocks-wrap rofi-search -show blocks -eh 4 -theme-str 'listview { lines: 5; }'")
     end,
             { description = "rofi google search", group = "rofi" }),
     cyclefocus.key({ modkey }, "Tab", {
