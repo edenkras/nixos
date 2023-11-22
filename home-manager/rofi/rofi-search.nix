@@ -18,7 +18,7 @@ let
   });
 in pkgs.symlinkJoin {
   name = pname;
-  paths = with pkgs; [ rofi-search nodejs_21 ddgr which ];
+  paths = with pkgs; [ rofi-search nodejs_21 ddgr which xclip ];
   nativeBuildInputs = [ pkgs.makeWrapper ];
   postBuild = ''
     mkdir $out/.bin
