@@ -188,6 +188,14 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi-systemd")
     end,
             { description = "rofi systemd", group = "rofi" }),
+    awful.key({ modkey }, "t", function()
+        awful.util.spawn("rofi -show top -modi top")
+    end,
+            { description = "rofi top", group = "rofi" }),
+    awful.key({ modkey }, "g", function()
+        awful.util.spawn("rofi -modi blocks -blocks-wrap rofi-search -show blocks -lines 4 -eh 4 -kb-custom-1 'Control+y'")
+    end,
+            { description = "rofi google search", group = "rofi" }),
     cyclefocus.key({ modkey }, "Tab", {
         move_mouse_pointer = false,
         cycle_filters = { cyclefocus.filters.same_screen },
