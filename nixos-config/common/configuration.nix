@@ -68,7 +68,7 @@
     jetbrains.idea-ultimate
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     sops
-    zoom
+    zoom-us
   ];
 
   virtualisation.docker.enable = true;

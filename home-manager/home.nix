@@ -48,6 +48,7 @@ in {
          modes = "power:rofi-power-menu,clipboard:greenclip print";
          ssh-command = "{terminal} {ssh-client} {host} [-p {port}]";
       };
+      pass.enable = true;
       plugins = with pkgs; [
         rofi-top
         (import ./rofi/rofi-blocks pkgs)
@@ -57,6 +58,12 @@ in {
       enable = true;
       enableBashIntegration = true;
       settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+    };
+    password-store = {
+      enable = true;
+      settings = {
+        PASSWORD_STORE_DIR = "${homeDirectory}/.local/share/pass";
+      };
     };
   };
 

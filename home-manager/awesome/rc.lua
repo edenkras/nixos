@@ -188,7 +188,7 @@ awful.keyboard.append_global_keybindings({
     end,
             { description = "rofi systemd", group = "rofi" }),
     awful.key({ modkey }, "t", function()
-        awful.util.spawn("rofi -show top -modi top -theme-str 'window {width: 75%;}'")
+        awful.util.spawn("rofi -show top -modi top -theme-str 'window { width: 75%; }'")
     end,
             { description = "rofi top", group = "rofi" }),
     awful.key({ modkey }, "g", function()
