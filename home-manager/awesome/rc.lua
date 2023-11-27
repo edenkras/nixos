@@ -20,8 +20,7 @@ local beautiful = require("beautiful")
 local theme = require("theme")
 
 local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
-
-local cyclefocus = require('cyclefocus')
+local cyclefocus = require('awesome-wm-widgets.cyclefocus')
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -204,7 +203,7 @@ awful.keyboard.append_global_keybindings({
         move_mouse_pointer = false,
         cycle_filters = { cyclefocus.filters.same_class },
     }, {}, { description = "Cycle same class clients", group = "client" }),
-    awful.key({ modkey }, "j", function()
+    awful.key({ modkey }, "/", function()
         awful.screen.focus_relative(1)
     end,
             { description = "focus the next screen", group = "screen" }),

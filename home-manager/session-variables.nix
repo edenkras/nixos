@@ -21,5 +21,5 @@ in {
   CUDA_CACHE_PATH = "${cacheHome}/nv";
   K9SCONFIG = "${configHome}/k9s";
   KUBECONFIG = "${configHome}/kube";
-  ROFI_PLUGINS_PATH = "${dataHome}/rofi-plugins";
+  KUBECACHEDIR = "${cacheHome}/kube";
 }

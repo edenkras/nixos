@@ -22,12 +22,7 @@
   services = {
     xserver = {
       enable = true;
-      displayManager = {
-        startx.enable = true;
-        setupCommands = ''
-          ${pkgs.numlockx}/bin/numlockx on
-        '';
-      };
+      displayManager.startx.enable = true;
       layout = "us,il";
       xkb.options = "grp:win_space_toggle";
       windowManager.awesome = {

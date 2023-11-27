@@ -43,7 +43,7 @@ in {
     rofi = {
       enable = true;
       theme = "Arc-Dark";
-      font = "Fira Code 16";
+      font = "Fira Code 14";
       extraConfig = {
          modes = "power:rofi-power-menu,clipboard:greenclip print";
          ssh-command = "{terminal} {ssh-client} {host} [-p {port}]";
