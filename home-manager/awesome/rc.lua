@@ -168,11 +168,11 @@ awful.keyboard.append_global_keybindings({
     end,
             { description = "open a terminal", group = "launcher" }),
     awful.key({ modkey }, "w", function()
-        awful.util.spawn("rofi -show window -show-icons -theme-str 'element-icon { size: 3ch; margin: 0.5ch; }' -theme-str 'element-text { vertical-align: 0.5; }'")
+        awful.util.spawn("rofi -show window -show-icons -theme-str 'element-icon { size: 2.5ch; margin: 0.1ch 0.5ch; }' -theme-str 'element-text { vertical-align: 0.5; }'")
     end,
             { description = "rofi window", group = "rofi" }),
     awful.key({ modkey }, "r", function()
-        awful.util.spawn("rofi -show drun -show-icons -theme-str 'element-icon { size: 3ch; margin: 0.5ch; }' -theme-str 'element-text { vertical-align: 0.5; }'")
+        awful.util.spawn("rofi -show drun -show-icons -theme-str 'element-icon { size: 2.5ch; margin: 0.1ch 0.5ch; }' -theme-str 'element-text { vertical-align: 0.5; }'")
     end,
             { description = "rofi drun", group = "rofi" }),
     awful.key({ modkey }, "p", function()
