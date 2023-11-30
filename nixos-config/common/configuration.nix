@@ -105,6 +105,7 @@
     fzf = {
       keybindings = true;
     };
+    steam.enable = true;
   };
 
   fonts.packages = with pkgs; [
