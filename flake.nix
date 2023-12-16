@@ -10,11 +10,12 @@
   outputs = { self, nixpkgs, home-manager }@inputs:
   let
     system = "x86_64-linux";
-    stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.11"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     identity = {
       username = "eden";
       host = "laptop";
       email = "edenkras@gmail.com";
+      workEmail = "eden.krasnopolsky@zeekit.me";
     };
   in
   {

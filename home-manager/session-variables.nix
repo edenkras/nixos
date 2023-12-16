@@ -8,6 +8,7 @@ let
 in {
   TERMINAL = "wezterm";
   WORK_DIR = "${homeDir}/walmart";
+  PERSONAL_DIR = "${homeDir}/personal";
   PASSWORD_STORE_DIR = "${dataHome}/pass";
   NODE_REPL_HISTORY = "${dataHome}/node_repl_history";
   _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${configHome}/java";

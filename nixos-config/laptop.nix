@@ -5,7 +5,8 @@
 
   programs = {};
 
-#  services = {
+  services = {
+    blueman.enable = true;
 #    autorandr = {
 #      enable = true;
 #    };
@@ -31,5 +32,8 @@
 #                ;;
 #      '';
 #    };
-#  };
+  };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 }

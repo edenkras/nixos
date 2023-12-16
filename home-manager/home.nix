@@ -9,6 +9,9 @@
 }:
 let
   homeDirectory = "/home/${identity.username}";
+  sessionVariables = import ./session-variables.nix homeDirectory;
+  gitConfigFile = "git/gitconfig";
+  gitWorkConfigFile = "git/gitconfig.work";
 in {
   nixpkgs = {
     config = {
@@ -17,8 +20,8 @@ in {
     };
   };
 
-  home = rec {
-    inherit stateVersion homeDirectory;
+  home = {
+    inherit stateVersion homeDirectory sessionVariables;
     username = identity.username;
     file = {
       ".xinitrc".source = ./xinitrc;
@@ -27,9 +30,9 @@ in {
     packages = with pkgs; [
       rofi-systemd
       rofi-power-menu
+      rofi-screenshot
       (import ./rofi/rofi-search.nix pkgs)
     ] ++ import ./scripts pkgs;
-    sessionVariables = import ./session-variables.nix homeDirectory;
   };
 
   programs = {
@@ -39,6 +42,27 @@ in {
       enable = true;
       enableBashIntegration = true;
       extraConfig = builtins.readFile ./wezterm.lua;
+    };
+    git = {
+      enable = true;
+      lfs.enable = true;
+      extraConfig = {
+        user.name = identity.username;
+        diff.tool = "nvimdiff";
+        merge.tool = "nvimdiff";
+        "includeIf \"gitdir:${sessionVariables.WORK_DIR}/**\"".path = "${homeDirectory}/.config/${gitWorkConfigFile}";
+        "includeIf \"gitdir:${sessionVariables.PERSONAL_DIR}/**\"".path = "${homeDirectory}/.config/${gitConfigFile}";
+      };
+    };
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        Host code.zeekit.walmart.com
+          ProxyCommand gcloud --configuration=zeekit-common compute start-iap-tunnel gitlab %p  --zone=us-central1-a --listen-on-stdin --verbosity=warning
+
+        Host *
+          SetEnv TERM=xterm-256color
+      '';
     };
     rofi = {
       enable = true;
@@ -65,6 +89,10 @@ in {
         PASSWORD_STORE_DIR = "${homeDirectory}/.local/share/pass";
       };
     };
+    thefuck = {
+      enable = true;
+      enableInstantMode = true;
+    };
   };
 
   xdg.configFile = {
@@ -72,6 +100,14 @@ in {
       source = ./awesome;
       recursive = true;
     };
+    "${gitWorkConfigFile}".text = ''
+      [user]
+        email = ${identity.workEmail}
+    '';
+    "${gitConfigFile}".text = ''
+      [user]
+        email = ${identity.email}
+    '';
   };
 
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs

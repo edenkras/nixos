@@ -56,6 +56,8 @@
     discord
     haskellPackages.greenclip
     xclip
+    nvimpager
+    tldr
 
     # work
     slack
@@ -91,16 +93,6 @@
       vimAlias = true;
       viAlias = true;
       defaultEditor = true;
-    };
-    git = {
-      enable = true;
-      lfs.enable = true;
-      config = {
-        user = {
-          name = identity.username;
-          email = identity.email;
-        };
-      };
     };
     fzf = {
       keybindings = true;

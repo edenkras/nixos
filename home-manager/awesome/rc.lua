@@ -21,6 +21,7 @@ local theme = require("theme")
 
 local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
 local cyclefocus = require('awesome-wm-widgets.cyclefocus')
+local calendar_widget = require("awesome-wm-widgets.calendar-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -88,6 +89,15 @@ end)
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+cw = calendar_widget({
+    theme = "dark",
+    placement = "top_right",
+    start_sunday = true,
+})
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
 
 -- Screens
 mainScreen = screen[1]
@@ -187,6 +197,10 @@ awful.keyboard.append_global_keybindings({
         awful.util.spawn("rofi-systemd -theme-str 'window {width: 75%;}'")
     end,
             { description = "rofi systemd", group = "rofi" }),
+    awful.key({ modkey }, "s", function()
+            awful.util.spawn("rofi-screenshot")
+        end,
+                { description = "rofi screenshot", group = "rofi" }),
     awful.key({ modkey }, "t", function()
         awful.util.spawn("rofi -show top -modi top -theme-str 'window { width: 75%; }'")
     end,
